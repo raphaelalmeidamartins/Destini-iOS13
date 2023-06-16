@@ -18,13 +18,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let firstStory = storyBrain.stories[0]
+        let firstStory = storyBrain.storyTree.event
 
         storyLabel.text = firstStory.event
         choice1Button.setTitle(firstStory.choice1, for: .normal)
         choice2Button.setTitle(firstStory.choice2, for: .normal)
     }
-
-
 }
-

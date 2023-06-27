@@ -9,7 +9,7 @@
 import Foundation
 
 class StoryBrain {
-    let storyTree: StoryTree
+    var storyTree: StoryTree
     
     init() {
         self.storyTree = StoryTree(event: Event(event: "You see a fork in the road.", choice1: "Take a left.", choice2: "Take a right."))

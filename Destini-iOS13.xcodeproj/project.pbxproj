@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,7 @@
 		AD7631DB22FC5E7E00C6E71B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD7631D922FC5E7E00C6E71B /* Main.storyboard */; };
 		AD7631DD22FC5E8300C6E71B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AD7631DC22FC5E8300C6E71B /* Assets.xcassets */; };
 		AD7631E022FC5E8300C6E71B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD7631DE22FC5E8300C6E71B /* LaunchScreen.storyboard */; };
-		AD7631EA22FC64C100C6E71B /* StoryTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7631E922FC64C100C6E71B /* StoryTree.swift */; };
+		AD7631EA22FC64C100C6E71B /* StoryNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7631E922FC64C100C6E71B /* StoryNode.swift */; };
 		AD7631ED22FC64E400C6E71B /* StoryBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7631EC22FC64E400C6E71B /* StoryBrain.swift */; };
 		AD7631EF22FC656600C6E71B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AD7631EE22FC656600C6E71B /* README.md */; };
 /* End PBXBuildFile section */
@@ -31,7 +31,7 @@
 		AD7631DC22FC5E8300C6E71B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AD7631DF22FC5E8300C6E71B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AD7631E122FC5E8300C6E71B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AD7631E922FC64C100C6E71B /* StoryTree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTree.swift; sourceTree = "<group>"; };
+		AD7631E922FC64C100C6E71B /* StoryNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryNode.swift; sourceTree = "<group>"; };
 		AD7631EC22FC64E400C6E71B /* StoryBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBrain.swift; sourceTree = "<group>"; };
 		AD7631EE22FC656600C6E71B /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,7 +99,7 @@
 		AD7631EB22FC64C900C6E71B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AD7631E922FC64C100C6E71B /* StoryTree.swift */,
+				AD7631E922FC64C100C6E71B /* StoryNode.swift */,
 				AD7631EC22FC64E400C6E71B /* StoryBrain.swift */,
 				9A73C86D2A36BB3D0077E438 /* Event.swift */,
 			);
@@ -132,8 +132,9 @@
 		AD7631C822FC5E7D00C6E71B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "The App Brewery";
 				TargetAttributes = {
 					AD7631CF22FC5E7E00C6E71B = {
@@ -184,7 +185,7 @@
 				AD7631D422FC5E7E00C6E71B /* AppDelegate.swift in Sources */,
 				AD7631D622FC5E7E00C6E71B /* SceneDelegate.swift in Sources */,
 				9A73C86E2A36BB3D0077E438 /* Event.swift in Sources */,
-				AD7631EA22FC64C100C6E71B /* StoryTree.swift in Sources */,
+				AD7631EA22FC64C100C6E71B /* StoryNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +237,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -296,6 +298,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;

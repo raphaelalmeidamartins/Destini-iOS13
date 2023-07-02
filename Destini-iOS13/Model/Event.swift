@@ -18,4 +18,12 @@ struct Event {
     let choice2: String
     
     let choice2Destination: Int
+    
+    static func ==(lhs: Event, rhs: Event) -> Bool {
+        return lhs.event == rhs.event &&
+            lhs.choice1 == rhs.choice1 &&
+            lhs.choice1Destination == rhs.choice1Destination &&
+            lhs.choice2 == rhs.choice2 &&
+            lhs.choice2Destination == rhs.choice2Destination
+    }
 }

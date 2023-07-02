@@ -8,14 +8,14 @@
 
 import Foundation
 
-class StoryTree {
+class StoryNode {
     public let event: Event
     
-    public var left: StoryTree?
+    public var left: StoryNode?
     
-    public var right: StoryTree?
+    public var right: StoryNode?
     
-    init(event: Event, left: StoryTree? = nil, right: StoryTree? = nil) {
+    init(event: Event, left: StoryNode? = nil, right: StoryNode? = nil) {
         self.event = event
         self.left = left
         self.right = right

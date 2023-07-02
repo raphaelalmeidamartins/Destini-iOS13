@@ -42,22 +42,61 @@ class StoryBrain {
         )
     ]
 
-    var storyTree: StoryTree?
+    var storyTree: StoryNode
     
     init() {
-        self.storyTree = createStoryTree(from: events, currentIndex: 0)
+        self.storyTree = StoryNode(event: events[0])
+        self.storyTree.left = self.createStoryTree(from: events, currentIndex: events[0].choice1Destination)
+        self.storyTree.right = self.createStoryTree(from: events, currentIndex: events[0].choice2Destination)
     }
     
-    func createStoryTree(from events: [Event], currentIndex: Int) -> StoryTree? {
+    func createStoryTree(from events: [Event], currentIndex: Int) -> StoryNode? {
         if currentIndex >= 0 && currentIndex < events.count {
             let currentEvent = events[currentIndex]
-            let currentNode = StoryTree(event: currentEvent)
-
-            currentNode.left = self.createStoryTree(from: events, currentIndex: currentEvent.choice1Destination)
-            currentNode.right = self.createStoryTree(from: events, currentIndex: currentEvent.choice2Destination)
+            let leftEvent = events[currentEvent.choice1Destination]
+            let rightEvent = events[currentEvent.choice2Destination]
+            let currentNode = StoryNode(event: currentEvent)
             
+            if let leftNode = self.findNodeByEvent(leftEvent) {
+                currentNode.left = leftNode
+            } else {
+                currentNode.left = self.createStoryTree(from: events, currentIndex: currentEvent.choice1Destination)
+            }
+            
+            if let rightNode = self.findNodeByEvent(rightEvent) {
+                currentNode.right = rightNode
+            } else {
+                currentNode.right = self.createStoryTree(from: events, currentIndex: currentEvent.choice2Destination)
+            }
+
             return currentNode
         }
         return nil
+    }
+    
+    func findNodeByEvent(_ event: Event) -> StoryNode? {
+        return self.findNodeByEvent(event, storyTree)
+    }
+    
+    func findNodeByEvent(_ event: Event,_ currentNode: StoryNode?) -> StoryNode? {
+        if currentNode == nil {
+            return nil
+        }
+
+        var foundNode: StoryNode? = nil
+        
+        if currentNode!.event == event {
+            foundNode = currentNode
+        }
+        
+        if foundNode == nil {
+            foundNode = self.findNodeByEvent(event, currentNode?.left)
+        }
+        
+        if foundNode == nil {
+            foundNode = self.findNodeByEvent(event, currentNode?.right)
+        }
+        
+        return foundNode
     }
 }

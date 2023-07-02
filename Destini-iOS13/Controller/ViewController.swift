@@ -28,12 +28,10 @@ class ViewController: UIViewController {
     func updateUI() {
         let currentStory = storyBrain.storyTree
         
-        if currentStory != nil {
-            storyLabel.text = currentStory!.event.event
-            choice1Button.setTitle(currentStory!.event.choice1, for: .normal)
-            choice1Button.choice = currentStory!.left
-            choice2Button.setTitle(currentStory!.event.choice2, for: .normal)
-            choice2Button.choice = currentStory!.right
-        }
+        storyLabel.text = currentStory.event.event
+        choice1Button.setTitle(currentStory.event.choice1, for: .normal)
+        choice1Button.choice = currentStory.left
+        choice2Button.setTitle(currentStory.event.choice2, for: .normal)
+        choice2Button.choice = currentStory.right
     }
 }

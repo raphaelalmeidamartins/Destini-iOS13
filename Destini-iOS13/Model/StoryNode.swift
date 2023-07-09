@@ -9,13 +9,13 @@
 import Foundation
 
 class StoryNode {
-    public let event: Event
+    public let event: StoryEvent
     
     public var left: StoryNode?
     
     public var right: StoryNode?
     
-    init(event: Event, left: StoryNode? = nil, right: StoryNode? = nil) {
+    init(event: StoryEvent, left: StoryNode? = nil, right: StoryNode? = nil) {
         self.event = event
         self.left = left
         self.right = right

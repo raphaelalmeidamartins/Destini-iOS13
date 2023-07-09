@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Event {
+struct StoryEvent {
     let event: String
 
     let choice1: String
@@ -19,7 +19,7 @@ struct Event {
     
     let choice2Destination: Int
     
-    static func ==(lhs: Event, rhs: Event) -> Bool {
+    static func ==(lhs: StoryEvent, rhs: StoryEvent) -> Bool {
         return lhs.event == rhs.event &&
             lhs.choice1 == rhs.choice1 &&
             lhs.choice1Destination == rhs.choice1Destination &&

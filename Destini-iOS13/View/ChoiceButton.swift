@@ -10,5 +10,5 @@ import Foundation
 import UIKit
 
 class ChoiceButton: UIButton {
-    var choice: StoryNode?
+    var choice: StoryEvent?
 }

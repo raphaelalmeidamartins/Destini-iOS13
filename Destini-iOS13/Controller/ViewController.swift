@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var choice1Button: ChoiceButton!
     @IBOutlet weak var choice2Button: ChoiceButton!
     
-    let storyBrain = StoryBrain()
+    var storyBrain = StoryBrain()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,17 +21,19 @@ class ViewController: UIViewController {
     }
 
     @IBAction func choiceChosen(_ sender: ChoiceButton) {
-        self.storyBrain.storyTree = sender.choice!
+        self.storyBrain.currentEvent = sender.choice!
         self.updateUI()
     }
     
     func updateUI() {
-        let currentStory = storyBrain.storyTree
+        let currentStory = storyBrain.currentEvent
+        let leftEvent = storyBrain.leftEvent
+        let rightEvent = storyBrain.rightEvent
         
-        storyLabel.text = currentStory.event.event
-        choice1Button.setTitle(currentStory.event.choice1, for: .normal)
-        choice1Button.choice = currentStory.left
-        choice2Button.setTitle(currentStory.event.choice2, for: .normal)
-        choice2Button.choice = currentStory.right
+        storyLabel.text = currentStory.event
+        choice1Button.setTitle(currentStory.choice1, for: .normal)
+        choice1Button.choice = leftEvent
+        choice2Button.setTitle(currentStory.choice2, for: .normal)
+        choice2Button.choice = leftEvent
     }
 }
